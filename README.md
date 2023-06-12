@@ -1,2 +1,7 @@
-# iamleo
-The nest of my website, portfolio, etc
+# Iamleo
+
+This is my website monorepo
+
+## Usage
+
+Read the turborepo README.
