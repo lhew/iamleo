@@ -1,13 +1,13 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import Splash from "@iamleo/web/app/components/splash";
+import SplashComponent from "@iamleo/web/app/components/splash";
 
-const meta: Meta<typeof Splash> = {
+const meta: Meta<typeof SplashComponent> = {
   title: "Web/Components",
-  component: Splash,
+  component: SplashComponent,
 };
 
 export default meta;
-type Story = StoryObj<typeof Splash>;
+type Story = StoryObj<typeof SplashComponent>;
 
-export const Default: Story = {};
+export const Splash: Story = {};
