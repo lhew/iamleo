@@ -1,6 +1,7 @@
 {
   "private": true,
   "scripts": {
+    "gcp-build": "npm run lint && npm run build",
     "build": "turbo run build",
     "dev": "turbo run dev",
     "lint": "turbo run lint",
