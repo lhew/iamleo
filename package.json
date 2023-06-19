@@ -4,6 +4,7 @@
     "build": "turbo run build",
     "dev": "turbo run dev",
     "lint": "turbo run lint",
+    "start": "turbo run start",
     "format": "prettier --write \"**/*.{ts,tsx,md}\""
   },
   "devDependencies": {
@@ -23,6 +24,7 @@
     "packages/*"
   ],
   "dependencies": {
+    "@apollo/server": "^4.7.3",
     "class-validator": "^0.14.0"
   }
 }

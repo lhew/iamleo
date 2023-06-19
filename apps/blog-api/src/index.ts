@@ -23,5 +23,6 @@ async function main() {
   });
 
   console.log("Server has started at ", port);
+  // console.log({ ready: true });
 }
 main();
