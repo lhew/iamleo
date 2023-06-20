@@ -55,4 +55,6 @@ const server = new ApolloServer({
   typeDefs,
 });
 
+console.log(process.env.POSTGRES_HOST);
+
 export default startServerAndCreateNextHandler(server);
