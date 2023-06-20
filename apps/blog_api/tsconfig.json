@@ -1,6 +1,7 @@
 {
   "extends": "@iamleo/tsconfig/nextjs.json",
   "compilerOptions": {
+    "experimentalDecorators": true,
     "plugins": [
       {
         "name": "next"
