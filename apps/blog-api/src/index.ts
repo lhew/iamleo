@@ -17,7 +17,7 @@ async function main() {
 
   const server = new ApolloServer({ schema });
 
-  const port = Number.parseInt(process.env.PORT) || 4000;
+  const port = Number.parseInt(process.env.API_PORT) || 4000;
   const { url } = await startStandaloneServer(server, {
     listen: { port },
   });
