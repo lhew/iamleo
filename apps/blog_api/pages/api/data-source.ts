@@ -8,7 +8,7 @@ const {
   POSTGRES_PORT,
   POSTGRES_HOST,
   POSTGRES_DB,
-} = process.env as Record<string, string>;
+} = process.env as NodeJS.Process["env"];
 
 export const AppDataSource = new DataSource({
   type: "postgres",
