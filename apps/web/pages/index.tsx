@@ -24,6 +24,11 @@ export async function getStaticProps() {
       variables: {
         limit: 3,
       },
+      context: {
+        headers: {
+          Host: null,
+        },
+      },
     });
 
     return {

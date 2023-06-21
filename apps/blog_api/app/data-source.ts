@@ -3,23 +3,23 @@ import { DataSource } from "typeorm";
 import { Post } from "./entities/Post";
 
 const {
-  POSTGRES_USER,
-  POSTGRES_PASSWORD,
-  POSTGRES_PORT,
-  POSTGRES_HOST,
-  POSTGRES_DB,
+  BLOG_POSTGRES_USER,
+  BLOG_POSTGRES_PASSWORD,
+  BLOG_POSTGRES_PORT,
+  BLOG_POSTGRES_HOST,
+  BLOG_POSTGRES_DATABASE,
 } = process.env as NodeJS.Process["env"];
 
 export const AppDataSource = new DataSource({
   type: "postgres",
-  host: POSTGRES_HOST,
-  port: parseInt(POSTGRES_PORT as string, 10),
-  username: POSTGRES_USER,
-  password: POSTGRES_PASSWORD,
-  database: POSTGRES_DB,
+  host: BLOG_POSTGRES_HOST,
+  port: parseInt(BLOG_POSTGRES_PORT as string, 10),
+  username: BLOG_POSTGRES_USER,
+  password: BLOG_POSTGRES_PASSWORD,
+  database: BLOG_POSTGRES_DATABASE,
   synchronize: true,
-  logging: false,
   entities: [Post],
   migrations: [],
   subscribers: [],
+  ssl: process.env.NODE_ENV === "production",
 });
