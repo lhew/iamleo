@@ -1,13 +1,29 @@
 import { Resolver, Query, Mutation, Arg } from "type-graphql";
 import { AddPostInput, Post } from "../entities/Post";
+import { FindOneOptions } from "typeorm";
 import { AppDataSource } from "../data-source";
 
 @Resolver()
 export class PostResolver {
   @Query(() => [Post])
-  async posts() {
+  async posts(
+    @Arg("limit", { nullable: true }) limit?: number,
+    @Arg("offset", { nullable: true }) offset?: number
+  ) {
     const postsRepo = AppDataSource.getRepository(Post);
-    const posts = await postsRepo.find();
+    const defaultOrder: FindOneOptions<Post>["order"] = { updatedAt: "DESC" };
+
+    if (limit) {
+      const posts = await postsRepo.find({
+        take: limit,
+        skip: offset || 0,
+        order: defaultOrder,
+      });
+      return posts || [];
+    }
+    const posts = await postsRepo.find({
+      order: defaultOrder,
+    });
     return posts || [];
   }
 

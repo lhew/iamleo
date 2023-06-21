@@ -5,6 +5,7 @@
       "dependsOn": ["^build"],
       "env": [
         "NODE_ENV",
+        "GRAPHQL_API_URL",
         "POSTGRES_USER",
         "POSTGRES_PASSWORD",
         "POSTGRES_PORT",
@@ -16,7 +17,7 @@
     "dev": {
       "cache": false,
       "persistent": true,
-      "dotEnv": [".env"]
+      "dotEnv": [".env", ".env.local"]
     }
   }
 }

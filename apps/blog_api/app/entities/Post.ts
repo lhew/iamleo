@@ -10,7 +10,7 @@ import {
 import { ObjectType, Field, ID, ArgsType, InputType } from "type-graphql";
 
 @Entity({ name: "post" })
-@ObjectType()
+@ObjectType({ description: "Post data" })
 export class Post {
   @Field(() => ID)
   @PrimaryGeneratedColumn()

@@ -25,19 +25,6 @@ const handler = startServerAndCreateNextHandler(server, {
   },
 });
 
-const addResponse = (res: NextResponse) => {
-  res.headers.set("Access-Control-Allow-Origin", "*");
-  res.headers.set(
-    "Access-Control-Allow-Methods",
-    "GET, POST, PUT, DELETE, OPTIONS"
-  );
-  res.headers.set(
-    "Access-Control-Allow-Headers",
-    "Content-Type, Authorization"
-  );
-  return res.headers;
-};
-
 export async function GET(req: NextRequest) {
   const response = await handler(req);
 
