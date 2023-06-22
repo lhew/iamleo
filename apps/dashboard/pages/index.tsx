@@ -2,6 +2,7 @@ import Head from "next/head";
 import { gql } from "@apollo/client";
 import client from "../graphql";
 import "@iamleo/tailwind/global.css";
+import { TextEditor } from "./components/texteditor";
 
 export async function getStaticProps() {
   try {
@@ -43,15 +44,15 @@ export async function getStaticProps() {
 }
 
 export default function Page(props) {
-  console.log(props);
   return (
     <>
       <Head>
-        <title>Splash</title>
+        <title>Dashboard</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
-      <h1 className="text-6xl font-bold">Dashboard</h1>
-      <pre>{JSON.stringify(props.posts)}</pre>
+      <main className="max-w-5xl p-8 mx-auto">
+        <TextEditor />
+      </main>
     </>
   );
 }

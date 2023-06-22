@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import BioComponent from "@iamleo/web/app/components/bio";
+import BioComponent from "@iamleo/web/pages/components/bio";
 
 const meta: Meta<typeof BioComponent> = {
   title: "Web/Components",
