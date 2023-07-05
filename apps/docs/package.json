@@ -7,7 +7,7 @@
     "build:old": "next build",
     "start": "next start",
     "lint": "next lint",
-    "dev": "storybook dev -p 6006",
+    "storybook": "storybook dev -p 6006",
     "build": "storybook build"
   },
   "dependencies": {

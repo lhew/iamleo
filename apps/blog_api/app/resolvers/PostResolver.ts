@@ -1,5 +1,5 @@
 import { Resolver, Query, Mutation, Arg } from "type-graphql";
-import { AddPostInput, Post } from "../entities/Post";
+import { AddPostInput, Post, UpdatePostInput } from "../entities/Post";
 import { FindOneOptions } from "typeorm";
 import { AppDataSource } from "../data-source";
 
@@ -27,6 +27,17 @@ export class PostResolver {
     return posts || [];
   }
 
+  @Query(() => Post)
+  async post(@Arg("id") id: number) {
+    try {
+      const postsRepo = AppDataSource.getRepository(Post);
+      const post = await postsRepo.findOne({ where: { id } });
+      return post;
+    } catch (e) {
+      throw new Error("Post not found");
+    }
+  }
+
   @Mutation(() => Post)
   async addPost(@Arg("data") postData: AddPostInput) {
     try {
@@ -45,7 +56,11 @@ export class PostResolver {
   }
 
   @Mutation(() => Post)
-  async updatePost(@Arg("id") id: number, @Arg("data") postData: AddPostInput) {
+  async updatePost(
+    @Arg("id") id: number,
+    @Arg("data")
+    postData: UpdatePostInput
+  ) {
     const post = await AppDataSource.manager.findOne(Post, { where: { id } });
 
     if (!post) {
@@ -53,10 +68,11 @@ export class PostResolver {
     }
 
     try {
-      await AppDataSource.manager.save(postData);
-      return post;
+      await AppDataSource.manager.update(Post, { id }, postData);
+      return await AppDataSource.manager.findOne(Post, { where: { id } });
     } catch (e) {
-      throw new Error("Error updating post");
+      console.log({ postData }, e);
+      throw new Error("Error updating post: ", e);
     }
   }
 

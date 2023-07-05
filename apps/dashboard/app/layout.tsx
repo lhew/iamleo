@@ -1,4 +1,5 @@
 import "@iamleo/tailwind/global.css";
+
 import Script from "next/script";
 
 export default function RootLayout({

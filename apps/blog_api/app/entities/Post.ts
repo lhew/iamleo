@@ -90,19 +90,16 @@ export class AddPostInput {
 @InputType({ description: "Update post data" })
 export class UpdatePostInput {
   @Field(() => String)
-  title!: string;
+  title?: string;
 
   @Field(() => String)
-  slug!: string;
+  thumbnail?: string;
 
   @Field(() => String)
-  thumbnail: string;
-
-  @Field(() => String)
-  content: string;
+  content?: string;
 
   @Field(() => Boolean)
-  published: boolean;
+  published?: boolean;
 }
 
 @InputType({ description: "Delete post data" })

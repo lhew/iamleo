@@ -1,3 +1,111 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.ProseMirror {
+  @apply p-4;
+  line-height: 1.5;
+  min-height: 300px;
+  border-radius: 0.5em;
+  max-height: 450px;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.ProseMirror-focused {
+  @apply outline-none;
+}
+
+.blog-post {
+}
+
+.blog-post h1 {
+  @apply text-4xl;
+}
+
+.blog-post h2 {
+  @apply text-3xl;
+}
+
+.blog-post h3 {
+  @apply text-2xl;
+}
+
+.blog-post h4 {
+  @apply text-xl;
+}
+
+.blog-post h5 {
+  @apply text-lg;
+}
+
+.blog-post h6 {
+  @apply text-base;
+}
+
+.blog-post h1,
+.blog-post h2,
+.blog-post h3,
+.blog-post h4,
+.blog-post h5,
+.blog-post h6 {
+  @apply mb-4 font-bold;
+}
+
+.blog-post p {
+  @apply text-base;
+}
+
+.blog-post a {
+  @apply text-blue-500;
+}
+
+.blog-post a:hover {
+  @apply text-blue-700;
+}
+
+.blog-post ul {
+  @apply ml-4 list-disc;
+}
+
+.blog-post ol {
+  @apply ml-4 list-decimal;
+}
+
+.blog-post blockquote {
+  @apply pl-4 border-l-4 border-gray-300 my-4;
+}
+
+.blog-post code {
+  @apply p-1 bg-gray-100 rounded;
+}
+
+.blog-post pre {
+  @apply p-2 bg-gray-100 rounded my-4;
+}
+
+.blog-post pre code {
+  @apply bg-transparent;
+}
+
+.blog-post img {
+  @apply mx-auto;
+}
+
+.blog-post table {
+  @apply border border-collapse border-gray-300;
+}
+
+.blog-post th,
+.blog-post td {
+  @apply border border-gray-300;
+}
+
+.blog-post th {
+  @apply bg-gray-100;
+}
+
+.blog-post th,
+.blog-post td {
+  @apply p-2;
+}
